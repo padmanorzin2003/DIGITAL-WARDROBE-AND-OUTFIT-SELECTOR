@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Wardrobe | Outfit Selector</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<header class="navbar">
+    <a href="#" class="logo">Closet<span>ly.</span></a>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#wardrobe">My Wardrobe</a>
+        <a href="#selector">Outfit Selector</a>
+        <a href="#add-clothes">Add Clothes</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-text">
+        <p class="tagline">YOUR STYLE, YOUR RULES</p>
+        <h1>Discover Your<br>Perfect <span>Outfit.</span></h1>
+        <p>Organize your wardrobe, explore your style,
+           and find the perfect outfit for every occasion.</p>
+        <a href="#selector" class="main-btn">Choose My Outfit →</a>
+    </div>
+    <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=850&q=85"
+             alt="Fashion clothing and personal style">
+    </div>
+</section>
+
+<section class="stats">
+    <div><strong id="total-count">0</strong><span>Wardrobe Items</span></div>
+    <div><strong id="favorite-count">0</strong><span>Favorites</span></div>
+    <div><strong>∞</strong><span>Style Possibilities</span></div>
+</section>
+
+<section class="section" id="wardrobe">
+    <div class="section-heading">
+        <div>
+            <p class="tagline">YOUR PERSONAL COLLECTION</p>
+            <h2>My Wardrobe</h2>
+        </div>
+        <button class="outline-btn" onclick="showFavorites()">
+            ♥ Favorites
+        </button>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterClothes('All', this)">All</button>
+        <button class="filter-btn" onclick="filterClothes('Tops', this)">Tops</button>
+        <button class="filter-btn" onclick="filterClothes('Bottoms', this)">Bottoms</button>
+        <button class="filter-btn" onclick="filterClothes('Dresses', this)">Dresses</button>
+        <button class="filter-btn" onclick="filterClothes('Shoes', this)">Shoes</button>
+    </div>
+
+    <div id="wardrobe-grid" class="wardrobe-grid"></div>
+    <p id="empty-message" class="empty-message" hidden>
+        No items found. Add some clothes to your wardrobe!
+    </p>
+</section>
+
+<section class="selector-section" id="selector">
+    <div class="selector-content">
+        <p class="tagline">LET'S STYLE YOU</p>
+        <h2>What are you dressing for?</h2>
+        <p>Select an occasion and let your digital wardrobe
+           suggest an outfit for you.</p>
+
+        <label for="occasion">Choose an occasion</label>
+        <select id="occasion">
+            <option value="Casual">Casual Day</option>
+            <option value="College">College</option>
+            <option value="Party">Party</option>
+            <option value="Formal">Formal Event</option>
+        </select>
+
+        <button class="main-btn" onclick="generateOutfit()">
+            ✨ Generate My Outfit
+        </button>
+
+        <p id="outfit-message" class="outfit-message"></p>
+        <div id="outfit-result" class="outfit-result"></div>
+    </div>
+</section>
+
+<section class="section add-section" id="add-clothes">
+    <p class="tagline">GROW YOUR COLLECTION</p>
+    <h2>Add New Clothes</h2>
+    <p class="section-description">
+        Add clothing items to your personal digital wardrobe.
+    </p>
+
+    <form id="clothes-form">
+        <div class="form-grid">
+            <div>
+                <label for="item-name">Clothing Name</label>
+                <input type="text" id="item-name"
+                       placeholder="e.g. White Shirt" required>
+            </div>
+            <div>
+                <label for="item-category">Category</label>
+                <select id="item-category" required>
+                    <option value="Tops">Tops</option>
+                    <option value="Bottoms">Bottoms</option>
+                    <option value="Dresses">Dresses</option>
+                    <option value="Shoes">Shoes</option>
+                </select>
+            </div>
+            <div>
+                <label for="item-color">Color</label>
+                <input type="text" id="item-color"
+                       placeholder="e.g. White" required>
+            </div>
+            <div>
+                <label for="item-image">Image URL</label>
+                <input type="url" id="item-image"
+                       placeholder="https://example.com/image.jpg" required>
+            </div>
+        </div>
+        <button type="submit" class="main-btn">+ Add to Wardrobe</button>
+        <p id="form-message" role="status"></p>
+    </form>
+</section>
+
+<footer>
+    <a href="#home" class="logo">Closet<span>ly.</span></a>
+    <p>Dress your way. Express yourself.</p>
+    <p>Web Programming Project | HTML, CSS & JavaScript</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
